@@ -16,7 +16,5 @@
     </div>
 </ParallaxImage>
 
-<Grid>
 
-    If it wasnt obvious enough already, these images are temporary :)
-</Grid>
+<Grid />
