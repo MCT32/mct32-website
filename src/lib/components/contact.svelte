@@ -11,8 +11,12 @@
     export let href;
 </script>
 
-<li>
-    <img class="inline h-5" src={icon} {alt}>
-    <b>{name}</b>
-    <a class="underline pl-3" {href}>{user}</a>
-</li>
+<tr>
+    <td>
+        <img class="inline h-5" src={icon} {alt}>
+        <b>{name}</b>
+    </td>
+    <td class="text-right">
+        <a class="underline pl-3" {href}>{user}</a>
+    </td>
+</tr>
