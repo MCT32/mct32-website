@@ -16,5 +16,6 @@
     </div>
 </ParallaxImage>
 
+<h2 class="font-semibold text-5xl m-5">Projects:</h2>
 
 <Grid />
