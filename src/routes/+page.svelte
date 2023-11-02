@@ -3,7 +3,7 @@
 </script>
 
 <ParallaxImage src="background.png">
-    <div class="px-20 py-40">
+    <div class="px-20 py-40 drop-shadow-lg">
         <h1 class="text-white font-semibold text-9xl">
             Hi,
             <br>
