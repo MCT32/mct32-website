@@ -13,7 +13,7 @@
 
 <tr>
     <td>
-        <img class="inline h-5" src={icon} {alt}>
+        <img class="inline w-5" src={icon} {alt}>
         <b>{name}</b>
     </td>
     <td class="text-right">
