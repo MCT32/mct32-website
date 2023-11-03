@@ -1,9 +1,7 @@
 <script>
     import { page } from '$app/stores';
 
-    /** @type {string} */
     export let path;
-    /** @type {string} */
     export let name;
 </script>
 

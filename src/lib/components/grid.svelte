@@ -1,11 +1,8 @@
 <script>
-// @ts-nocheck
-
     import TagButton from "$lib/components/tagButton.svelte";
     import GridItem from "$lib/components/gridItem.svelte";
     import TagGroup from "$lib/components/tagGroup.svelte"
 
-    /** @type {any} */
     const projects = [
         {
             title: "MCT32's Website",
@@ -68,12 +65,8 @@
         },
     ]
 
-    /** @type {any} */
     let tagList = {};
 
-    /**
-     * @type {any}
-     */
     let enabledTags = {};
 
     for (let project of projects) {
@@ -91,19 +84,16 @@
         }
     }
 
-    // @ts-ignore
     let visibleProjects = []
 
     function updateVisibleProjects() {
         visibleProjects = []        
 
         for (let project of projects) {
-            // @ts-ignore
             let show = true
 
             for (let group of Object.keys(project.tags)) {
                 if (enabledTags[group].length > 0) {
-                    // @ts-ignore
                     if (enabledTags[group].filter(element => project.tags[group].includes(element)).length === 0) {
                         show = false
                     }
@@ -117,9 +107,6 @@
         }
     }
 
-    /**
-     * @param {{ detail: { toggle: boolean; group: string; tag: string; }; }} event
-     */
     function handleTagEvent(event) {
         if (event.detail.toggle) {
             enabledTags[event.detail.group].push(event.detail.tag)

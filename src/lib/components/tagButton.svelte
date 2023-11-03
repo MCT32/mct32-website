@@ -3,9 +3,7 @@
 
     const dispatch = createEventDispatcher();
 
-    /** @type {string} */
     export let group;
-    /** @type {string} */
     export let tag;
 
     let isPressed = false;

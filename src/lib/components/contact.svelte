@@ -1,13 +1,8 @@
 <script>
-    /** @type {string} */
     export let name;
-    /** @type {string} */
     export let icon;
-    /** @type {string} */
     export let alt;
-    /** @type {string} */
     export let user;
-    /** @type {string} */
     export let href;
 </script>
 
