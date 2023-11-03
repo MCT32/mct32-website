@@ -15,6 +15,6 @@
     };
 </script>
 
-<button aria-pressed={isPressed} on:click={toggleIsPressed} class="rounded-lg border border-gray-500 p-2 mx-0.5 first:ml-0 last:mr-0 {isPressed ? "bg-blue-500 text-white" : "text-black"}">
+<button aria-pressed={isPressed} on:click={toggleIsPressed} class="first:rounded-l-lg last:rounded-r-lg border border-gray-500 p-2 {isPressed ? "bg-blue-500 text-white" : "text-black"}">
     {tag}
 </button>
