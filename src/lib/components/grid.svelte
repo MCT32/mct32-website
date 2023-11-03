@@ -8,6 +8,7 @@
             description: "Shitty, unfinished Wolfenstein clone",
             href: "https://github.com/MCT32/VelocityEngine",
             tags: [
+                "Unfinished",
                 "Rust",
             ],
         },
@@ -16,6 +17,7 @@
             description: "Recreationn of the DOOM level transition in Python. Exports to GIF.",
             href: "https://github.com/MCT32/Doom-Melting-Transition",
             tags: [
+                "Completed",
                 "Python",
             ],
         },
@@ -24,6 +26,7 @@
             description: "VC soundboard bot that can be controlled from outside the VC. Made before soundboards were officially added to Discord.",
             href: "https://github.com/MCT32/discord-soundboard",
             tags: [
+                "Completed",
                 "Javascript",
                 "Node",
             ],
@@ -33,6 +36,7 @@
             description: "2D zombie shooter survival game.",
             href: "https://github.com/MCT32/ZombieShooter",
             tags: [
+                "Abandoned",
                 "Python",
                 "Godot",
             ],
