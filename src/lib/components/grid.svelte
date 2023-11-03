@@ -7,45 +7,54 @@
             title: "VelocityEngine",
             description: "Shitty, unfinished Wolfenstein clone",
             href: "https://github.com/MCT32/VelocityEngine",
-            tags: [
-                "Unfinished",
-                "Rust",
-            ],
+            tags: {
+                state: ["Unfinished"],
+                languages: [
+                    "Rust",
+                ],
+            },
         },
         {
             title: "DOOM Melting Transition",
             description: "Recreationn of the DOOM level transition in Python. Exports to GIF.",
             href: "https://github.com/MCT32/Doom-Melting-Transition",
-            tags: [
-                "Completed",
-                "Python",
-            ],
+            tags: {
+                state: ["Completed"],
+                languages: [
+                    "Python",
+                ],
+            },
         },
         {
             title: "Discord Soundboard",
             description: "VC soundboard bot that can be controlled from outside the VC. Made before soundboards were officially added to Discord.",
             href: "https://github.com/MCT32/discord-soundboard",
-            tags: [
-                "Completed",
-                "Javascript",
-                "Node",
-            ],
+            tags: {
+                state: ["Completed"],
+                languages: [
+                    "Javascript",
+                    "Node",
+                ],
+            },
         },
         {
             title: "Zombie Shooter",
             description: "2D zombie shooter survival game.",
             href: "https://github.com/MCT32/ZombieShooter",
-            tags: [
-                "Abandoned",
-                "Python",
-                "Godot",
-            ],
+            tags: {
+                state: ["Abandoned"],
+                languages: [
+                    "Python",
+                    "Godot",
+                ],
+            },
         },
     ]
 
     /** @type {string[]} */
     let tagList = [];
 
+    /*
     for (let project of projects) {
         for (let tag of project.tags) {
             if (tagList.indexOf(tag) === -1) {
@@ -53,6 +62,7 @@
             }
         }
     }
+    */
 
     tagList.sort()
 
@@ -82,13 +92,7 @@
     </div>
     <div class="grid grid-cols-3 gap-4">
         {#each projects as {title, description, href, tags}}
-            {#if enabledTags.length > 0}
-                {#if tags.filter(element => enabledTags.includes(element)).length > 0}
-                    <GridItem {description} {title} {href} />
-                {/if}
-            {:else}
-                <GridItem {description} {title} {href} />
-            {/if}
+            <GridItem {description} {title} {href} />
         {/each}
     </div>
 </div>
