@@ -4,6 +4,19 @@
 
     const projects = [
         {
+            title: "MCT32's Website",
+            description: "The website you are browsing right now!",
+            href: "https://github.com/MCT32/mct32-website",
+            tags: {
+                state: ["WIP"],
+                languages: [
+                    "Svelte",
+                    "HTML",
+                    "Javascript",
+                ],
+            },
+        },
+        {
             title: "VelocityEngine",
             description: "Shitty, unfinished Wolfenstein clone",
             href: "https://github.com/MCT32/VelocityEngine",
