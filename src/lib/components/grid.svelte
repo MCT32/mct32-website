@@ -1,7 +1,11 @@
 <script>
+// @ts-nocheck
+
     import TagButton from "$lib/components/tagButton.svelte";
     import GridItem from "$lib/components/gridItem.svelte";
+    import TagGroup from "$lib/components/tagGroup.svelte"
 
+    /** @type {any} */
     const projects = [
         {
             title: "MCT32's Website",
@@ -64,47 +68,84 @@
         },
     ]
 
-    /** @type {string[]} */
-    let tagList = [];
+    /** @type {any} */
+    let tagList = {};
 
-    /*
+    /**
+     * @type {any}
+     */
+    let enabledTags = {};
+
     for (let project of projects) {
-        for (let tag of project.tags) {
-            if (tagList.indexOf(tag) === -1) {
-                tagList.push(tag)
+        for (let group of Object.keys(project.tags)) {
+            if (!tagList.hasOwnProperty(group)) {
+                tagList[group] = []
+                enabledTags[group] = []
+            }
+
+            for (let tag of project.tags[group]) {
+                if (tagList[group].indexOf(tag) === -1) {
+                    tagList[group].push(tag)
+                }
             }
         }
     }
-    */
 
-    tagList.sort()
+    // @ts-ignore
+    let visibleProjects = []
+
+    function updateVisibleProjects() {
+        visibleProjects = []        
+
+        for (let project of projects) {
+            // @ts-ignore
+            let show = true
+
+            for (let group of Object.keys(project.tags)) {
+                if (enabledTags[group].length > 0) {
+                    // @ts-ignore
+                    if (enabledTags[group].filter(element => project.tags[group].includes(element)).length === 0) {
+                        show = false
+                    }
+                }
+            }
+
+            if (show === true) {
+                visibleProjects.push(project)
+                visibleProjects = visibleProjects;
+            }
+        }
+    }
 
     /**
-     * @type {string[]}
-     */
-    let enabledTags = [];
-
-    /**
-     * @param {{ detail: { toggle: boolean; tag: string; }; }} event
+     * @param {{ detail: { toggle: boolean; group: string; tag: string; }; }} event
      */
     function handleTagEvent(event) {
         if (event.detail.toggle) {
-            enabledTags.push(event.detail.tag)
+            enabledTags[event.detail.group].push(event.detail.tag)
             enabledTags = enabledTags;
         } else {
-            enabledTags.splice(enabledTags.indexOf(event.detail.tag), 1);
+            enabledTags[event.detail.group].splice(enabledTags[event.detail.group].indexOf(event.detail.tag), 1);
             enabledTags = enabledTags;
         }
+
+        updateVisibleProjects()
     }
+
+    updateVisibleProjects()
 </script>
 <div class="border border-gray-500 rounded-lg p-5 m-5">
-    <div>
-        {#each tagList as tag}
-            <TagButton {tag} on:tagEvent={handleTagEvent} />
+    <div class="inline-flex">
+        {#each Object.keys(tagList) as group}
+            <TagGroup>
+                {#each tagList[group] as tag}
+                    <TagButton {tag} {group} on:tagEvent={handleTagEvent} />
+                {/each}
+            </TagGroup>
         {/each}
     </div>
     <div class="grid grid-cols-3 gap-4">
-        {#each projects as {title, description, href, tags}}
+        {#each visibleProjects as {title, description, href, tags}}
             <GridItem {description} {title} {href} />
         {/each}
     </div>
