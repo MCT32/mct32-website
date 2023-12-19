@@ -1,6 +1,5 @@
 <script>
     import ParallaxImage from "$lib/components/parallaxImage.svelte";
-    import Grid from "$lib/components/grid.svelte";
 </script>
 
 <ParallaxImage src="background.png">
@@ -16,6 +15,3 @@
     </div>
 </ParallaxImage>
 
-<h2 class="font-semibold text-5xl m-5">Projects:</h2>
-
-<Grid />
